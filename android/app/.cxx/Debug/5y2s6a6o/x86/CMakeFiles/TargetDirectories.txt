@@ -1,0 +1,2 @@
+/Users/ernest/Documents/workspace/project/catatan_keuanganku/android/app/.cxx/Debug/5y2s6a6o/x86/CMakeFiles/edit_cache.dir
+/Users/ernest/Documents/workspace/project/catatan_keuanganku/android/app/.cxx/Debug/5y2s6a6o/x86/CMakeFiles/rebuild_cache.dir
