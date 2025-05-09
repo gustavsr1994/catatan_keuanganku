@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'data/models/Transaction.dart';
+
 void main() {
   initialData();
   runApp(const MyApp());
@@ -14,10 +16,16 @@ void main() {
 void initialData() async {
   WidgetsFlutterBinding.ensureInitialized();
   final appDocument = await getApplicationDocumentsDirectory();
-  Hive.init(appDocument.path);
+  // Hive.init(appDocument.path);
+  await Hive.initFlutter(appDocument.path);
   if (!Hive.isAdapterRegistered(0)) {
     Hive.registerAdapter(TypeTransactionAdapter());
   }
+  if (!Hive.isAdapterRegistered(1)) {
+    Hive.registerAdapter(TransactionAdapter());
+  }
+  await Hive.openBox<Transaction>(boxTransaction);
+  await Hive.openBox<TypeTransaction>(boxTypeTransaction);
 }
 
 class MyApp extends StatelessWidget {

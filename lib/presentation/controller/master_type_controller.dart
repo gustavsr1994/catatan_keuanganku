@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:catatan_keuanganku/app/base/base_controller.dart';
 import 'package:catatan_keuanganku/data/models/TypeTransaction.dart';
 import 'package:flutter/material.dart';
@@ -10,11 +8,6 @@ import '../../app/misc/constant_value.dart';
 class MasterTypeController extends BaseController {
   int indexTabSelected = 0;
   TextEditingController typeField = TextEditingController();
-
-  void initialData() async {
-    await Hive.openBox<TypeTransaction>(boxTypeTransaction);
-    refreshUI();
-  }
 
   void actionTabSelect(int value) {
     indexTabSelected = value;

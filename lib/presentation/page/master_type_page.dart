@@ -6,9 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MasterTypePage extends BasePage<MasterTypeController> {
-  MasterTypePage({super.key, required super.pageController}) {
-    pageController.initialData();
-  }
+  MasterTypePage({super.key, required super.pageController});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +15,9 @@ class MasterTypePage extends BasePage<MasterTypeController> {
         builder: (context, controller) {
           return Scaffold(
             appBar: AppBar(
-              title: const Text('Master Type Transaction'),
+              title: Text(controller.indexTabSelected == 0
+                  ? 'Master Type Income'
+                  : 'Master Type Outcome'),
             ),
             floatingActionButton: FloatingActionButton(
               onPressed: () => controller.openForm(),
@@ -39,8 +39,7 @@ class MasterTypePage extends BasePage<MasterTypeController> {
                 unselectedFontSize: 15,
                 items: const [
                   BottomNavigationBarItem(
-                      label: 'Income',
-                      icon: Icon(FontAwesomeIcons.moneyBill)),
+                      label: 'Income', icon: Icon(FontAwesomeIcons.moneyBill)),
                   BottomNavigationBarItem(
                       label: 'Outcome', icon: Icon(Icons.payment_rounded))
                 ]),
